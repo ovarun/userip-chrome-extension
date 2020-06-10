@@ -1,0 +1,80 @@
+<!DOCTYPE html> 
+<html>
+	<head>
+		<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<link rel="stylesheet" href="assets/css/popup.css">   
+	</head>
+	<body class="">
+		<div id="loading">
+			<div class="pin"></div> 
+			<div class="pulse"></div>
+		</div>
+  
+	   	<div class="header" id="header_container" style="display: none;"> 
+		    <a href="https://www.arunov.com/" class="header__link" target="_blank">
+		      	<img class="header__logo header__logo--light" src="assets/img/logo_dark.png" style="width: 75%;" title="My IP Plugin">
+		      	<img class="header__logo header__logo--dark" src="assets/img/logo_light.png" style="width: 75%;" title="My IP Plugin">
+		    </a>  
+			<div id="reload" class="reload-link">
+				<a href="#" id="reload-link">
+					Refresh <img class="detected__app-icon filter-white" src="assets/img/refresh.svg" title="Refresh">
+				</a>
+			</div> 
+			<div class="theme-changer"> 
+				<label class="switch">
+				  <input type="checkbox" name="theme_changer" id="theme_changer" title="Dark & Light Theme Changer">
+				  <span class="slider round" title="Dark & Light Theme Changer"></span>
+				</label>  
+			</div> 
+	   	</div>
+
+	   	<div class="container" id="main_container" style="display: none;">
+	      	<div class="detected">
+	         	<div class="detected__category">
+	            	<div class="detected__category-name detected__category-link"> Your IP </div>
+	            	<div class="detected__apps" id="ip">
+	            		<img class="detected__app-icon filter-white" src="assets/img/navigation.svg">
+	            		<span class="detected__app-name" id='ip_inner'></span>
+	            	</div>
+	         	</div> 
+	      	</div>
+	      
+	      	<div class="detected">
+	         	<div class="detected__category">
+	            	<div class="detected__category-name detected__category-link"> Area (approximate) </div>
+	            	<div class="detected__apps">
+	            		<img class="detected__app-icon filter-white" src="assets/img/navigation.svg">
+	            		<span class="detected__app-name" id='location'></span>
+	            	</div>
+	         </div> 
+	      </div>
+	      
+	      	<div class="detected">
+	         	<div class="detected__category">
+	            	<div class="detected__category-name detected__category-link"> Country (approximate) </div>
+	            	<div class="detected__apps">
+	            		<img class="detected__app-icon filter-white" src="assets/img/navigation.svg">
+	            		<span class="detected__app-name" id='isp'></span>
+	            	</div>
+	         	</div> 
+	      	</div>
+	      
+	      	<div class="detected">
+	         	<div class="detected__category">
+	            	<div class="detected__category-name detected__category-link"> Geographic Coordinate </div>
+	            	<div class="detected__apps">
+	            		<img class="detected__app-icon filter-white" src="assets/img/navigation.svg">
+	            		<span class="detected__app-name" id='coordinate'></span>
+	            	</div>
+	         	</div> 
+	      	</div> 
+	   	</div> 
+    
+	   	<div id="lastcheck_container" style="display: none;">
+	   		<hr/><div class="container" id="lastchecks"></div>
+	   	</div>
+	</body> 
+	<script type='text/javascript' src='popup.js'></script>
+</html>
+ 

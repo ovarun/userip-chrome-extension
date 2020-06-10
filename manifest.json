@@ -1,0 +1,29 @@
+ {
+  "name": "My IP Plugin",
+  "description": "Show details of Your IP address and network information.",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "author": "Arun o v",
+ 
+  "browser_action": { 
+    "default_name": "MyIP", 
+    "default_title": "Get My IP", 
+    "default_icon": "assets/img/icon.png",
+    "default_popup": "popup.html"
+  }, 
+ 
+  "icons": {
+    "120": "assets/img/icon120.png",
+    "96" : "assets/img/icon96.png",
+    "48" : "assets/img/icon48.png",
+    "36" : "assets/img/icon36.png",
+    "16" : "assets/img/icon16.png"
+  },
+
+  "key": "MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCjWrfC7PXtzJIhewZabyw4f5k4H9x4Lla5IXAUD67/H1tJDUVmXbKDyV8CX/PWjVaEc/BiryN2psypcuuZHj2OZb93g41ynJLlJShVYMzmwn27qHBo6ML1KC4VebZ1IpdmahWyC5yTxmQCUlT/FZ0DC5w1QAXXqTOaGLm02+A8VKmBpkfzmXRH+dARyFaJG/dIYziTAdcxcpnfLOcItU7Hb622U3xOoR4IUJf6SDdBtdfmd8vxfWoTwHq9jq++9uOP9/dnuMAc6rtkQjILtkQcBGM6n7+dMU7KlLvly6HYFpqzp0EQsEFvXi1wBuGclvv1xNAuNSQi9wrwG212Lp6xAgMBAAECggEAEvUErVjdg27BqKQDzTvomFfqepJr/gB2rP5d6N4XE2FasSQaoTIPdO7KGVb0T7pQR4fC5ljn1y2tQ57kC31wbFWPfjmkkR/thi0lPJ9CuCbq+3ulK++TLGswyeo5i+drRYXbJbHmRln4IjLWzVF/Sqquwpk+9FOc+u2So5P+tlF3bkFy6+diwK8SlGjI1YSWHjOhdehhZ6PFfs6lMXZ9JdERe6o24WNm4fiXEYK5DEc5wKP1Qn4HcQxS2in7Ce90Em305v2K/b3QhOLlbUeq3sO82xRBnr32cb4BKX+p1d7zQXXtoI9ttm3Rw8998aAP/cucqASQnHd3EoEbDIHhvwKBgQDRYl+/5aecaRPMdM6iY4bIIZGCTUD4VyJ8dDd2tX190eUkx66imPRUiTizY+hENnOisYtiL1gssLLdEWgFCLlEBlJfnjkMm3DCrSn/r9fu8B+fbHBs/+9vdyoaecUFxuWYlTVV5uvB80vpA+PMNbXhy7AvLO+RibGesMn4Y3FSIwKBgQDHuOuCXvQgeP/J52syT4I+9kpGsFNqPNAEjq8W9FvC4Qj30RV92TXS9YsTWrhBCKhY/d2fey5HmZ+rWwlTUSB06VLyYmaKg+xfY0jKftaAcYg/KHk/938ghKEC4kurHKjqz/6Y1OAj70VoKjBR+AU3HdvLv6T6JvWyu2qD6dQHGwKBgGcMYU9SOWFzHXlca23kSaspSjG0z6rpR2G02K8ltzM7H+kwFTSUznrkZfFz1BXuLo79jjmuT1j/RagjLux7VKKz8cp5Vl5sCdzl2GusITvJFeciOVqLw006epA5KcwkDU9A79TtJ0527P8rGOuh63fLBVTSar1X5QDSxTPnzRe9AoGALj1E4UEkmiQJbHBUpCg+Sl9xIN6P4WfE7VkvdkwKtpqtHdrdc+6HBJluooN9Zyke+MOFvPei5lbN3blM9mow7oBagN2BSg5y+j6dSqyE8uXWGnE/aSze1ON/94/23t3aycpv8mhOoGM0GYKy/zdB1dnm2kw7YOMGPWQgq/vF6AMCgYAQIubye//LXzFQCnGNUjtszEGAwwwq7REEHi5FWH8ln+d/w1x1Qkbxq8GW4i3T1pdakQu8bJZ9dm031+9onuZj1HvRAKSdLdJZquoyEjGd4TwJ2iBrCxr24qqVneMdFln+4sFgmR010Bk4JJ1rhB8dufqxB6RnAPdjKUXadwWgRA==",
+   
+  "permissions": [
+   "activeTab", 
+   "http://www.geoplugin.net/"
+   ]   
+} 
