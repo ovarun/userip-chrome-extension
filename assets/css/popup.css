@@ -354,7 +354,7 @@ body {
   text-align: center; 
   height: 150px; 
   padding-top: 120px;  
-  background: #2f2f2f; 
+  background: #ffffff; 
 }
  
   
@@ -705,6 +705,9 @@ body.theme-mode-sync  {
   background: linear-gradient(160deg, #32067c, #150233);
 }
 
+.theme-mode-sync #loading {  
+  background: linear-gradient(160deg, #32067c, #150233);
+}
 .theme-mode-sync .filter-white{
   filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(287deg) brightness(102%) contrast(101%); 
 }

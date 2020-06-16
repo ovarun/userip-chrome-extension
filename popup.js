@@ -77,12 +77,11 @@ function lastChecks() {
 	h = '';
 	
 	if (checks) {
-		h += '<span class="lastips">Last IPs:</span><br />';
 		for (var a = checks.length-1; a >= 0; a--) {
 			ch = checks[a];
- 
-
+ 			h += '<div class="detected"><div class="detected__apps"><span class="detected__app-name">'; 
 			h += '<div class="lastcheck">'+ch.date+'<br /><strong>'+ch.ip_inner+'</strong>, '+ch.location+', '+ch.country+'</div>';
+ 			h += '</span></div></div><br/>'; 
 		}
 	} else {
 		h += '<span class="lastips">No IPs checked before.</span><br />';
