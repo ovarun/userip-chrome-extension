@@ -1,0 +1,26 @@
+{
+  "name": "userip-chrome-extension",
+  "version": "1.0.0",
+  "description": "Google chrome extension to find the current ip address, it also shows previous 5~6 ip address checked. Light & Black theme supported.",
+  "main": "popup.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ovarun/userip-chrome-extension.git"
+  },
+  "keywords": [
+    "chrome",
+    "extension"
+  ],
+  
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
+  
+  "author": "Arun O V",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ovarun/userip-chrome-extension/issues"
+  },
+  "homepage": "https://github.com/ovarun/userip-chrome-extension#readme"
+}
