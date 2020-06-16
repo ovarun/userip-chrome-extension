@@ -14,11 +14,28 @@ String.prototype.between = function(a,b) {
 
 function ThemeChanger() { 
 	if(ge('theme_changer').checked){ 
-		ge('PluginBody').classList.add("theme-mode-sync");
+		ge('PluginBody').classList.add("theme-mode-sync"); 
+		chrome.storage.sync.set({'theme': 'Dark'}, function() { 
+	      console.log('Theme settings saved');
+	    });
 	}else{
-		ge('PluginBody').classList.remove('theme-mode-sync');
-	}
-	
+		ge('PluginBody').classList.remove('theme-mode-sync'); 
+		chrome.storage.sync.set({'theme': 'Light'}, function() { 
+	      console.log('Theme settings saved');
+	    });
+	} 
+}
+
+function DefaultTheme(){
+	chrome.storage.sync.get(['theme'], function(result) { 
+        if(result.theme == 'Dark'){ 
+			ge('PluginBody').classList.add("theme-mode-sync"); 
+			ge('theme_changer').checked = true;
+		}else{
+			ge('PluginBody').classList.remove('theme-mode-sync'); 
+			ge('theme_changer').checked = false;
+		}  
+    });
 }
 
 function xchange() {
@@ -97,6 +114,8 @@ function loadit() {
 	ge('header_container').style.display = 'none';
 	ge('main_container').style.display = 'none';
 	ge('lastcheck_container').style.display = 'none';
+
+	DefaultTheme();
 }
 
 
