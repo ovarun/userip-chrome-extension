@@ -1,74 +1,46 @@
 
-if (localStorage.getItem('lastchecks') == '')
-	localStorage.setItem('lastchecks', JSON.stringify(new Array()));
 
-String.prototype.between = function(a,b) {
-  m1 = this.indexOf(a);
-  m2 = this.indexOf(b, m1+a.length);
-  if (m1 == -1)
-    return false;
-  if (m2 != -1)
-    return this.substring(m1+a.length,m2);
-  else
-    return this.substring(m1+a.length);
-}
-
-function HTMLParser(aHTMLString){
-  var html = document.implementation.createHTMLDocument("some title");
-  html.documentElement.innerHTML = aHTMLString;
-
-  return html;
-}
-
-function getNode(document, element, xpath) {
-	var itemNodes = document.evaluate(xpath, element, null,XPathResult.ANY_TYPE, null);
-	var itemNode = itemNodes.iterateNext();
-	while (itemNode) {
-		return itemNode;
+function ThemeChanger() { 
+	if(ge('theme_changer').checked){ 
+		ge('PluginBody').classList.add("theme-mode-sync");
+	}else{
+		ge('PluginBody').classList.remove('theme-mode-sync');
 	}
-	return null;
-}
-
-function getNodes(document, element, xpath) {
-	var itemNodes = document.evaluate(xpath, element, null,XPathResult.ANY_TYPE, null);
-	var itemNode = itemNodes.iterateNext();
-	var nodes = [];
-	while (itemNode) {
-		nodes.push(itemNode);
-		itemNodes.iterateNext();
-	}
-	return nodes;
+	
 }
 
 function xchange() {
 	if (x.readyState == 4) {
 		if (x.status == 200) {
-			var html = x.responseText;            
-			parseHTML(html);
+			var jsonobj = x.responseText;            
+			parseJSON(jsonobj);
 		} else {
 			alert("Couldn't complete request, please report the bug to the developer:\n" + x.statusText);
 		}
 	}
 }
 
-function parseHTML(h) {
-	var document = HTMLParser(h);
-	ge('loading').style.display = 'none';
-	ge('main').style.display = 'block';
-	var info = getNode(document, document.getElementsByTagName('body')[0], "//main");
-	var ip = getNode(document, info, "//h1/strong").innerHTML;
-	
-	//var locationwrap = info.innerHTML.between('Your IP Address Location: ', '</h3>');
-	//locationwrap = locationwrap.replace('src="/flags', 'src="http://ip-adress.com/flags');
-	var locationwrap = getNode(document, info, "//p[1]/em[1]").innerHTML;
-	var ispwrap = getNode(document, info, "//p[1]/em[2]").innerHTML;
+function parseJSON(jsonobj) {
+	var document = JSON.parse(jsonobj);   
 
-	ge('ip_inner').innerHTML = ip;
-	ge('location').innerHTML = locationwrap;
-	ge('isp').innerHTML = ispwrap;
+	ge('loading').style.display = 'none';
+	ge('header_container').style.display = '';
+	ge('main_container').style.display = '';
+	ge('lastcheck_container').style.display = '';
+ 
+	var ip_inner   = document.geoplugin_request;
+	var location   = document.geoplugin_city;
+	var country    = document.geoplugin_countryName+'('+document.geoplugin_countryCode+')';
+	var coordinate = document.geoplugin_latitude+','+document.geoplugin_longitude;
+	 
+
+	ge('ip_inner').innerHTML   = ip_inner;
+	ge('location').innerHTML   = location;
+	ge('country').innerHTML    = country;
+	ge('coordinate').innerHTML = coordinate;
 	
 	lastChecks();
-	pushCheck({ip:ip, lc:locationwrap, isp:ispwrap, date:new Date().toUTCString()});
+	pushCheck({ip_inner:ip_inner, location:location, country:country, coordinate:coordinate, date:new Date().toUTCString()});
 }
 
 function lastChecks() {
@@ -79,7 +51,9 @@ function lastChecks() {
 		h += '<span class="lastips">Last IPs:</span><br />';
 		for (var a = checks.length-1; a >= 0; a--) {
 			ch = checks[a];
-			h += '<div class="lastcheck">'+ch.date+'<br /><strong>'+ch.ip+'</strong>, '+ch.lc+', '+ch.isp+'</div>';
+ 
+
+			h += '<div class="lastcheck">'+ch.date+'<br /><strong>'+ch.ip_inner+'</strong>, '+ch.location+', '+ch.country+'</div>';
 		}
 	} else {
 		h += '<span class="lastips">No IPs checked before.</span><br />';
@@ -92,7 +66,7 @@ function pushCheck(check) {
 	
 	if (checks == null)
 		checks = new Array();
-	if (checks.length >= 5)
+	if (checks.length >= 6)
 		checks.shift();
 	checks.push(check);
 	localStorage.setItem('lastchecks', JSON.stringify(checks));
@@ -108,11 +82,13 @@ function loadit() {
 	x.send(null);
 
 	ge('loading').style.display = 'block';
-	ge('main').style.display = 'none';
+	ge('header_container').style.display = 'none';
+	ge('main_container').style.display = 'none';
+	ge('lastcheck_container').style.display = 'none';
 }
 
 
-var checkurl = 'https://www.ip-adress.com/';
+var checkurl = 'http://www.geoplugin.net/json.gp';
 var x = new XMLHttpRequest();
 
 
@@ -120,18 +96,14 @@ var x = new XMLHttpRequest();
 
 
 setTimeout(function() {
-	loadit();
+	loadit();  
 }, 10);
-
-ge('ip').addEventListener('click',
-	function selectText() {
-		var range = document.createRange();
-		range.selectNode(ge('ip_inner'));
-		window.getSelection().addRange(range);
-	
-    }
-);
+ 
 
 ge('reload-link').addEventListener('click', function() {
-	loadit();
+	loadit(); 
+}, false);
+
+ge('theme_changer').addEventListener('click', function() { 
+	ThemeChanger();
 }, false);

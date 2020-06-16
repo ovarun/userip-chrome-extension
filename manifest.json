@@ -24,6 +24,6 @@
    
   "permissions": [
    "activeTab", 
-   "http://www.geoplugin.net/"
+      "http://www.geoplugin.net/"
    ]   
 } 

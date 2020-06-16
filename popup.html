@@ -5,8 +5,8 @@
     	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 		<link rel="stylesheet" href="assets/css/popup.css">   
 	</head>
-	<body class="">
-		<div id="loading">
+	<body class="theme-mode-sync" id="PluginBody">
+		<div id="loading" style="display: none;">
 			<div class="pin"></div> 
 			<div class="pulse"></div>
 		</div>
@@ -55,7 +55,7 @@
 	            	<div class="detected__category-name detected__category-link"> Country (approximate) </div>
 	            	<div class="detected__apps">
 	            		<img class="detected__app-icon filter-white" src="assets/img/navigation.svg">
-	            		<span class="detected__app-name" id='isp'></span>
+	            		<span class="detected__app-name" id='country'></span>
 	            	</div>
 	         	</div> 
 	      	</div>
@@ -72,7 +72,8 @@
 	   	</div> 
     
 	   	<div id="lastcheck_container" style="display: none;">
-	   		<hr/><div class="container" id="lastchecks"></div>
+	   		<hr/>
+	   		<div class="container" id="lastchecks"></div>
 	   	</div>
 	</body> 
 	<script type='text/javascript' src='popup.js'></script>
