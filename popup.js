@@ -1,4 +1,16 @@
+if (localStorage.getItem('lastchecks') == '')
+	localStorage.setItem('lastchecks', JSON.stringify(new Array()));
 
+String.prototype.between = function(a,b) {
+  m1 = this.indexOf(a);
+  m2 = this.indexOf(b, m1+a.length);
+  if (m1 == -1)
+    return false;
+  if (m2 != -1)
+    return this.substring(m1+a.length,m2);
+  else
+    return this.substring(m1+a.length);
+}
 
 function ThemeChanger() { 
 	if(ge('theme_changer').checked){ 
